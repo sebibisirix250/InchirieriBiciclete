@@ -1,0 +1,24 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Plata.DeleteModel
+
+<h2>Stergere Plata</h2>
+
+<div class="alert alert-warning" role="alert">
+    Sunteti sigur ca doriti sa stergeti aceasta plata?
+</div>
+
+<div>
+    <h4>Inchiriere</h4>
+    <p>@Model.Plata.Inchiriere.Client.Nume - @Model.Plata.Inchiriere.Bicicleta.Nume</p>
+
+    <h4>Suma</h4>
+    <p>@Model.Plata.Suma</p>
+
+    <h4>Data Plata</h4>
+    <p>@Model.Plata.DataPlata.ToString("dd-MM-yyyy")</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Sterge</button>
+    <a href="/Plata/Index" class="btn btn-secondary">Anuleaza</a>
+</form>

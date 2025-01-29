@@ -1,0 +1,40 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Plati.IndexModel
+
+<h2>Plati</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="/Plati/Create">Adauga Plata</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Bicicleta</th>
+            <th>Inchiriere</th>
+            <th>Suma</th>
+            <th>Data Plata</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plata in Model.Plati)
+        {
+            <tr>
+                <td>@plata.Inchiriere.Client.Nume</td>  
+                <td>@plata.Inchiriere.Bicicleta.Nume</td> 
+                <td>@plata.Inchiriere.DataInchiriere.ToString("yyyy-MM-dd")</td>
+                <td>@plata.Suma</td>
+                <td>@plata.DataPlata.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a href="@Url.Page("Edit", new { id = plata.Id })" class="btn btn-warning">Editeaza</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@plata.Id" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Sterge</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,33 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Clienti.IndexModel
+
+<h2>Lista Clienti</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="/Clienti/Create">Adauga Client</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var client in Model.Clienti)
+        {
+            <tr>
+                <td>@client.Nume</td>
+                <td>@client.Email</td>
+                <td>@client.Telefon</td>
+                <td>
+                    <a href="@Url.Page("./Edit", new { id = client.Id })" class="btn btn-warning">Editeaza</a>
+                    <a href="@Url.Page("./Delete", new { id = client.Id })" class="btn btn-danger">Sterge</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

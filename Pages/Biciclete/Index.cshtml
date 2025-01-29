@@ -1,0 +1,39 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Biciclete.IndexModel
+
+<h2>Biciclete</h2>
+
+<p>
+    <a class="btn btn-primary" asp-page="/Biciclete/Create">Adauga Bicicleta</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nume</th>
+            <th>Model</th>
+            <th>Pret</th>
+            <th>Stare</th>
+            <th>Actiuni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var bicicleta in Model.Biciclete)
+        {
+            <tr>
+                <td>@bicicleta.Nume</td>
+                <td>@bicicleta.Model</td>
+                <td>@bicicleta.Pret</td>
+                <td>@bicicleta.Stare</td>
+                <td>
+                    <a href="@Url.Page("Edit", new { id = bicicleta.Id })" class="btn btn-warning">Editeaza</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@bicicleta.Id" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Sterge</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

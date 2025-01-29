@@ -1,0 +1,31 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Plata.EditModel
+
+<h2>Editare Plata</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="InchiriereId">Inchiriere</label>
+        <select id="InchiriereId" name="InchiriereId" class="form-control" required>
+            @foreach (var inchiriere in Model.Inchirieri)
+            {
+                <option value="@inchiriere.Id" selected="@(inchiriere.Id == Model.Plata.InchiriereId ? "selected" : null)">
+                    @inchiriere.Client.Nume - @inchiriere.Bicicleta.Nume
+                </option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Suma">Suma</label>
+        <input type="number" step="0.01" id="Suma" name="Suma" class="form-control" value="@Model.Plata.Suma" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DataPlata">Data Plata</label>
+        <input type="date" id="DataPlata" name="DataPlata" class="form-control" value="@Model.Plata.DataPlata.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salveaza</button>
+</form>
+

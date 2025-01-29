@@ -1,0 +1,59 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Inchirieri.CreateModel
+
+@using InchirieriBiciclete.Data
+
+<h2>Adaugă Închiriere</h2>
+
+<form method="post">
+
+    <div class="form-group">
+        <label for="ClientId">Client</label>
+        <select id="ClientId" name="Inchiriere.ClientId" class="form-control" required>
+            @if (ViewData["Clienti"] == null)
+            {
+                <option value="">Nu există clienți disponibili</option>
+            }
+            else
+            {
+                @foreach (var client in (List<Client>)ViewData["Clienti"])
+                {
+                    <option value="@client.Id">@client.Nume</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="BicicletaId">Bicicletă</label>
+        <select id="BicicletaId" name="Inchiriere.BicicletaId" class="form-control" required>
+            @if (ViewData["Biciclete"] == null)
+            {
+                <option value="">Nu există biciclete disponibile</option>
+            }
+            else
+            {
+                @foreach (var bicicleta in (List<Bicicleta>)ViewData["Biciclete"])
+                {
+                    <option value="@bicicleta.Id">@bicicleta.Nume</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="DataInchiriere">Data Închirierii</label>
+        <input type="date" id="DataInchiriere" name="Inchiriere.DataInchiriere" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DataReturnare">Data Returnării</label>
+        <input type="date" id="DataReturnare" name="Inchiriere.DataReturnare" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvează</button>
+</form>
+
+
+
+

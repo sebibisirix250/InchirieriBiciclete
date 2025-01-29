@@ -1,0 +1,28 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Inchirieri.IndexModel
+
+<h2>Lista Închirierilor</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Client</th>
+            <th>Bicicletă</th>
+            <th>Data Închirierii</th>
+            <th>Data Returnării</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inchiriere in Model.Inchirieri)
+        {
+            <tr>
+                <td>@inchiriere.Client.Nume</td>
+                <td>@inchiriere.Bicicleta.Nume</td>
+                <td>@inchiriere.DataInchiriere.ToString("dd/MM/yyyy")</td>
+                <td>@inchiriere.DataReturnare.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="Inchirieri/Create" class="btn btn-primary">Adaugă Închiriere</a>

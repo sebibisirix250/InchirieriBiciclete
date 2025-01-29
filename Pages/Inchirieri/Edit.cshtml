@@ -1,0 +1,40 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Inchirieri.EditModel
+
+<h2>Editare Inchiriere</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ClientId">Client</label>
+        <select id="ClientId" name="ClientId" class="form-control" required>
+            @foreach (var client in Model.Clienti)
+            {
+                <option value="@client.Id" selected="@(client.Id == Model.Inchirieri.ClientId ? "selected" : null)">@client.Nume</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="BicicletaId">Bicicleta</label>
+        <select id="BicicletaId" name="BicicletaId" class="form-control" required>
+            @foreach (var bicicleta in Model.Biciclete)
+            {
+                <option value="@bicicleta.Id" selected="@(bicicleta.Id == Model.Inchirieri.BicicletaId ? "selected" : null)">@bicicleta.Nume</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="DataInchiriere">Data Inchirierii</label>
+        <input type="date" id="DataInchiriere" name="DataInchiriere" class="form-control" value="@Model.Inchirieri.DataInchiriere.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DataReturnare">Data Returnarii</label>
+        <input type="date" id="DataReturnare" name="DataReturnare" class="form-control" value="@Model.Inchirieri.DataReturnare.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvează</button>
+</form>
+
+

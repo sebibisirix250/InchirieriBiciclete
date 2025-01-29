@@ -1,0 +1,44 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Plata.CreateModel
+
+@using InchirieriBiciclete.Data
+
+<h2>Adaugă Plată</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <label for="InchiriereId">Închiriere</label>
+        <select id="InchiriereId" name="Plata.InchiriereId" class="form-control" required>
+            @if (ViewData["Inchirieri"] == null)
+            {
+                <option value="">Nu există închirieri disponibile</option>
+            }
+            else
+            {
+                @foreach (var inchiriere in (List<Inchiriere>)ViewData["Inchirieri"])
+                {
+                    <option value="@inchiriere.Id">@inchiriere.Client.Nume - @inchiriere.Bicicleta.Nume</option>
+                }
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Suma">Suma</label>
+        <input type="number" id="Suma" name="Plata.Suma" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="DataPlata">Data Plata</label>
+        <input type="date" id="DataPlata" name="Plata.DataPlata" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvează</button>
+</form>
+
+
+
+
+

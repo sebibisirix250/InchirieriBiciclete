@@ -1,0 +1,36 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Biciclete.CreateModel
+
+<h2>Adauga Bicicleta</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Bicicleta.Nume">Nume</label>
+        <input asp-for="Bicicleta.Nume" class="form-control" required />
+        <span asp-validation-for="Bicicleta.Nume" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bicicleta.Model">Model</label>
+        <input asp-for="Bicicleta.Model" class="form-control" required />
+        <span asp-validation-for="Bicicleta.Model" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bicicleta.Pret">Preț</label>
+        <input asp-for="Bicicleta.Pret" class="form-control" required />
+        <span asp-validation-for="Bicicleta.Pret" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bicicleta.Stare">Stare</label>
+        <input asp-for="Bicicleta.Stare" class="form-control" required />
+        <span asp-validation-for="Bicicleta.Stare" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Adauga Bicicleta</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

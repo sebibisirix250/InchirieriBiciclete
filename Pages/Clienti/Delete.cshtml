@@ -1,0 +1,11 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Clienti.DeleteModel
+
+<h2>Șterge Client</h2>
+
+<h3>Esti sigur ca vrei sa stergi clientul: @Model.Client.Nume?</h3>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Sterge</button>
+    <a href="./Index" class="btn btn-secondary">Anuleaza</a>
+</form>

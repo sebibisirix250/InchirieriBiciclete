@@ -1,0 +1,19 @@
+﻿@page
+@model InchirieriBiciclete.Pages.Inchirieri.DeleteModel
+
+<h2>Sterge Inchiriere</h2>
+
+<h3>Sigur vrei sa stergi aceasta inchiriere?</h3>
+
+<div>
+    <h4>Informatii Inchiriere</h4>
+    <p><strong>Client:</strong> @Model.Inchirieri.Client.Nume</p>
+    <p><strong>Bicicleta:</strong> @Model.Inchirieri.Bicicleta.Nume</p>
+    <p><strong>Data Inchirierii:</strong> @Model.Inchirieri.DataInchiriere.ToString("yyyy-MM-dd")</p>
+    <p><strong>Data Returnarii:</strong> @Model.Inchirieri.DataReturnare.ToString("yyyy-MM-dd")</p>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Sterge</button>
+    <a asp-page="./Index" class="btn btn-secondary">Anuleaza</a>
+</form>
